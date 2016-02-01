@@ -16,7 +16,7 @@ or if you using nodemon
 ## Docs
 * [Cermai Wiki](https://github.com/creativefull/cermai/wiki)
 
-## Support
+## Supports
 * [Creativefull](https://github.com/creativefull)
 * [Tangituru.com](http://tangituru.com)
 * [Otopromo.com](http://otopromo.com)
