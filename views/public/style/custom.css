@@ -1,0 +1,27 @@
+body {
+	text-transform: uppercase;
+	background-color: #455a64;
+}
+.body {
+	text-align: center;
+	margin-top: 100px;
+	color: #FFF;
+}
+.body h2 {
+	margin: 0;
+	margin-bottom: 10px;
+}
+.body .separuh {
+	width: 50%;
+	margin: 0px auto;
+}
+.body p {
+	font-size: 15px;
+}
+input {
+	color: #FFF !important;
+	border-bottom: 2px solid#FF0 !important;
+}
+label {
+	color: #FFF !important;
+}

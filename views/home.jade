@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+html
+	head
+		title GET SOUNDCLOUD | FREE DOWNLOAD MUSIC FROM SOUNDCLOUD
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		meta(name="author" content="Creativefull")
+		meta(name="description" content="Get Soundcloud enables you to download most of the tracks from SoundCloud! Saving your favorite music has never been easier!")
+		meta(name="keywords" content="soundflush, soundcloud mp3, download from soundcloud, soundcloud download, soundcloud downloader")
+		link(rel="stylesheet" href="/style/material.min.css")
+		link(rel="stylesheet" href="/style/font-material.css")
+		link(rel="stylesheet" href="/style/custom.css")
+
+		script(src="/js/material.min.js")
+		script(type="text/javascript" src="/js/jquery.min.js")
+	body
+		div(class="mdl-layout mdl-js-layout mdl-layout--fixed-header")
+			header(class="mdl-layout__header")
+				div(class="mdl-layout__header-row")
+					span(class="mdl-layout-title") GET SOUNDCLOuD
+					div(class="mdl-layout-spacer")
+					nav(class="mdl-navigation mdl-layout--large-screen-only")
+						a(class="mdl-navigation__link" href="#home" data-rel="link") Home
+			div(class="mdl-layout__drawer")
+				span(class="mdl-layout-title") GET SOUNDCLOUD
+				nav(class="mdl-navigation")
+					a(class="mdl-navigation__link" href="#home" data-rel="link") Home
+			main.mdl-layout__content
+				div.mdl-grid
+					div.mdl-cell.mdl-cell--12-col.box
+						div.body
+							div.separuh
+								h2 GET SOUNDCLOUD
+								p
+									i GET SOUNDCLOUD enables you to download 
+									b most of the tracks 
+									| from SoundCloud! Saving your 
+									b favorite 
+									| music (8,101,261) has never been easier! Enjoy your favorite music wherever you are.
+								div.box-download
+									div.detail
+									div.form
+										form(action="/req" method="POST")#form-url
+											div(class="mdl-textfield mdl-js-textfield" style='width:100%')
+												input(class="mdl-textfield__input" type="text" id="sample1" name="url")
+												label(class="mdl-textfield__label" for="sample1") LINK TO DOWNLOAD
+											button(class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored")#btn-download Download
+
+	script.
+		$(function() {
+			$("#btn-download").removeAttr("disabled");
+			$("#form-url").submit(function() {
+				var selektor = $(".box-download");
+				$.ajax({
+					url : $(this).attr("action"),
+					type : 'POST',
+					data : "url=" + $("#sample1").val(),
+					beforeSend : function() {
+						$("#btn-download").attr("disabled","disabled").text("Loading . . .");
+					},
+					success : function(msg) {
+						$("#btn-download").removeAttr("disabled").text("download");
+						if (msg != "error") {
+							$(".detail").html("<h4 style=\"margin-bottom:0px\">" + msg[0].judul + "</h4><br><button class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\" onclick=\'recover()\' style=\"margin-rigth:10px\">BACK</button> <a href=" + msg[0].url + " target=\"_blank\"><button class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\">DOWNLOAD NOW</button></a>");
+							$(".form").slideUp(200);
+						}
+						else {
+							alert("Error URL Not Valid");
+						}
+					}
+				})
+				return false;
+			});
+
+		})
+
+		function recover() {
+			$(".detail").html("");
+			$(".form").slideDown(200);
+		}
