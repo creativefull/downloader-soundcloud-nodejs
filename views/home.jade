@@ -48,6 +48,7 @@ html
 	script.
 		$(function() {
 			$("#btn-download").removeAttr("disabled");
+			var  urlShort = 'http://sh.st/st/11b4c11dffb38105a942765b3e9b0bc6/';
 			$("#form-url").submit(function() {
 				var selektor = $(".box-download");
 				$.ajax({
@@ -60,7 +61,7 @@ html
 					success : function(msg) {
 						$("#btn-download").removeAttr("disabled").text("download");
 						if (msg != "error") {
-							$(".detail").html("<h4 style=\"margin-bottom:0px\">" + msg[0].judul + "</h4><br><button class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\" onclick=\'recover()\' style=\"margin-rigth:10px\">BACK</button> <a href=" + msg[0].url + " target=\"_blank\"><button class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\">DOWNLOAD NOW</button></a>");
+							$(".detail").html("<h4 style=\"margin-bottom:0px\">" + msg[0].judul + "</h4><br><button class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\" onclick=\'recover()\' style=\"margin-rigth:10px\">BACK</button> <a href=" + urlShort + msg[0].url + " target=\"_blank\"><button class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\">DOWNLOAD NOW</button></a>");
 							$(".form").slideUp(200);
 						}
 						else {
