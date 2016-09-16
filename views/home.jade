@@ -44,6 +44,13 @@ html
 												input(class="mdl-textfield__input" type="text" id="sample1" name="url")
 												label(class="mdl-textfield__label" for="sample1") LINK TO DOWNLOAD
 											button(class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored")#btn-download Download
+										br
+										center
+											span Supported by
+											br
+											a(href="http://tangituru.com" target="_blank") Tangituru.com
+											|  |  
+											a(href="http://syntax-x.blogspot.com" target="_blank") Syntax-x.blogspot.com
 
 	script.
 		$(function() {
@@ -61,7 +68,7 @@ html
 					success : function(msg) {
 						$("#btn-download").removeAttr("disabled").text("download");
 						if (msg != "error") {
-							$(".detail").html("<h4 style=\"margin-bottom:0px\">" + msg[0].judul + "</h4><br><button class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\" onclick=\'recover()\' style=\"margin-rigth:10px\">BACK</button> <a href=" + urlShort + msg[0].url + " target=\"_blank\"><button class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\">DOWNLOAD NOW</button></a>");
+							$(".detail").html("<h4 style=\"margin-bottom:0px\">" + msg[0].judul + "</h4><br><button class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\" onclick=\'recover()\' style=\"margin-rigth:10px\">BACK</button> <a href="+ msg[0].url + " target=\"_blank\" download=\"" + msg[0].judul + "\"><button class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\">DOWNLOAD NOW</button></a>");
 							$(".form").slideUp(200);
 						}
 						else {
